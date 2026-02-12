@@ -11,7 +11,7 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var core_Tron_pb = require('../core/Tron_pb.js');
+var core_Linda_pb = require('../core/Linda_pb.js');
 goog.exportSymbol('proto.protocol.AccountCreateContract', null, global);
 goog.exportSymbol('proto.protocol.AccountPermissionUpdateContract', null, global);
 goog.exportSymbol('proto.protocol.AccountUpdateContract', null, global);
@@ -3201,7 +3201,7 @@ proto.protocol.AssetIssueContract.toObject = function(includeInstance, msg) {
     totalSupply: jspb.Message.getFieldWithDefault(msg, 4, 0),
     frozenSupplyList: jspb.Message.toObjectList(msg.getFrozenSupplyList(),
     proto.protocol.AssetIssueContract.FrozenSupply.toObject, includeInstance),
-    trxNum: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    lindNum: jspb.Message.getFieldWithDefault(msg, 6, 0),
     precision: jspb.Message.getFieldWithDefault(msg, 7, 0),
     num: jspb.Message.getFieldWithDefault(msg, 8, 0),
     startTime: jspb.Message.getFieldWithDefault(msg, 9, 0),
@@ -3277,7 +3277,7 @@ proto.protocol.AssetIssueContract.deserializeBinaryFromReader = function(msg, re
       break;
     case 6:
       var value = /** @type {number} */ (reader.readInt32());
-      msg.setTrxNum(value);
+      msg.setLindNum(value);
       break;
     case 7:
       var value = /** @type {number} */ (reader.readInt32());
@@ -3399,7 +3399,7 @@ proto.protocol.AssetIssueContract.serializeBinaryToWriter = function(message, wr
       proto.protocol.AssetIssueContract.FrozenSupply.serializeBinaryToWriter
     );
   }
-  f = message.getTrxNum();
+  f = message.getLindNum();
   if (f !== 0) {
     writer.writeInt32(
       6,
@@ -3841,16 +3841,16 @@ proto.protocol.AssetIssueContract.prototype.clearFrozenSupplyList = function() {
 
 
 /**
- * optional int32 trx_num = 6;
+ * optional int32 lind_num = 6;
  * @return {number}
  */
-proto.protocol.AssetIssueContract.prototype.getTrxNum = function() {
+proto.protocol.AssetIssueContract.prototype.getLindNum = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
 /** @param {number} value */
-proto.protocol.AssetIssueContract.prototype.setTrxNum = function(value) {
+proto.protocol.AssetIssueContract.prototype.setLindNum = function(value) {
   jspb.Message.setProto3IntField(this, 6, value);
 };
 
@@ -6232,7 +6232,7 @@ proto.protocol.CreateSmartContract.prototype.toObject = function(opt_includeInst
 proto.protocol.CreateSmartContract.toObject = function(includeInstance, msg) {
   var f, obj = {
     ownerAddress: msg.getOwnerAddress_asB64(),
-    newContract: (f = msg.getNewContract()) && core_Tron_pb.SmartContract.toObject(includeInstance, f),
+    newContract: (f = msg.getNewContract()) && core_Linda_pb.SmartContract.toObject(includeInstance, f),
     callTokenValue: jspb.Message.getFieldWithDefault(msg, 3, 0),
     tokenId: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
@@ -6276,8 +6276,8 @@ proto.protocol.CreateSmartContract.deserializeBinaryFromReader = function(msg, r
       msg.setOwnerAddress(value);
       break;
     case 2:
-      var value = new core_Tron_pb.SmartContract;
-      reader.readMessage(value,core_Tron_pb.SmartContract.deserializeBinaryFromReader);
+      var value = new core_Linda_pb.SmartContract;
+      reader.readMessage(value,core_Linda_pb.SmartContract.deserializeBinaryFromReader);
       msg.setNewContract(value);
       break;
     case 3:
@@ -6329,7 +6329,7 @@ proto.protocol.CreateSmartContract.serializeBinaryToWriter = function(message, w
     writer.writeMessage(
       2,
       f,
-      core_Tron_pb.SmartContract.serializeBinaryToWriter
+      core_Linda_pb.SmartContract.serializeBinaryToWriter
     );
   }
   f = message.getCallTokenValue();
@@ -6394,7 +6394,7 @@ proto.protocol.CreateSmartContract.prototype.setOwnerAddress = function(value) {
  */
 proto.protocol.CreateSmartContract.prototype.getNewContract = function() {
   return /** @type{?proto.protocol.SmartContract} */ (
-    jspb.Message.getWrapperField(this, core_Tron_pb.SmartContract, 2));
+    jspb.Message.getWrapperField(this, core_Linda_pb.SmartContract, 2));
 };
 
 
@@ -8593,10 +8593,10 @@ proto.protocol.AccountPermissionUpdateContract.prototype.toObject = function(opt
 proto.protocol.AccountPermissionUpdateContract.toObject = function(includeInstance, msg) {
   var f, obj = {
     ownerAddress: msg.getOwnerAddress_asB64(),
-    owner: (f = msg.getOwner()) && core_Tron_pb.Permission.toObject(includeInstance, f),
-    witness: (f = msg.getWitness()) && core_Tron_pb.Permission.toObject(includeInstance, f),
+    owner: (f = msg.getOwner()) && core_Linda_pb.Permission.toObject(includeInstance, f),
+    witness: (f = msg.getWitness()) && core_Linda_pb.Permission.toObject(includeInstance, f),
     activesList: jspb.Message.toObjectList(msg.getActivesList(),
-    core_Tron_pb.Permission.toObject, includeInstance)
+    core_Linda_pb.Permission.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -8638,18 +8638,18 @@ proto.protocol.AccountPermissionUpdateContract.deserializeBinaryFromReader = fun
       msg.setOwnerAddress(value);
       break;
     case 2:
-      var value = new core_Tron_pb.Permission;
-      reader.readMessage(value,core_Tron_pb.Permission.deserializeBinaryFromReader);
+      var value = new core_Linda_pb.Permission;
+      reader.readMessage(value,core_Linda_pb.Permission.deserializeBinaryFromReader);
       msg.setOwner(value);
       break;
     case 3:
-      var value = new core_Tron_pb.Permission;
-      reader.readMessage(value,core_Tron_pb.Permission.deserializeBinaryFromReader);
+      var value = new core_Linda_pb.Permission;
+      reader.readMessage(value,core_Linda_pb.Permission.deserializeBinaryFromReader);
       msg.setWitness(value);
       break;
     case 4:
-      var value = new core_Tron_pb.Permission;
-      reader.readMessage(value,core_Tron_pb.Permission.deserializeBinaryFromReader);
+      var value = new core_Linda_pb.Permission;
+      reader.readMessage(value,core_Linda_pb.Permission.deserializeBinaryFromReader);
       msg.addActives(value);
       break;
     default:
@@ -8693,7 +8693,7 @@ proto.protocol.AccountPermissionUpdateContract.serializeBinaryToWriter = functio
     writer.writeMessage(
       2,
       f,
-      core_Tron_pb.Permission.serializeBinaryToWriter
+      core_Linda_pb.Permission.serializeBinaryToWriter
     );
   }
   f = message.getWitness();
@@ -8701,7 +8701,7 @@ proto.protocol.AccountPermissionUpdateContract.serializeBinaryToWriter = functio
     writer.writeMessage(
       3,
       f,
-      core_Tron_pb.Permission.serializeBinaryToWriter
+      core_Linda_pb.Permission.serializeBinaryToWriter
     );
   }
   f = message.getActivesList();
@@ -8709,7 +8709,7 @@ proto.protocol.AccountPermissionUpdateContract.serializeBinaryToWriter = functio
     writer.writeRepeatedMessage(
       4,
       f,
-      core_Tron_pb.Permission.serializeBinaryToWriter
+      core_Linda_pb.Permission.serializeBinaryToWriter
     );
   }
 };
@@ -8760,7 +8760,7 @@ proto.protocol.AccountPermissionUpdateContract.prototype.setOwnerAddress = funct
  */
 proto.protocol.AccountPermissionUpdateContract.prototype.getOwner = function() {
   return /** @type{?proto.protocol.Permission} */ (
-    jspb.Message.getWrapperField(this, core_Tron_pb.Permission, 2));
+    jspb.Message.getWrapperField(this, core_Linda_pb.Permission, 2));
 };
 
 
@@ -8790,7 +8790,7 @@ proto.protocol.AccountPermissionUpdateContract.prototype.hasOwner = function() {
  */
 proto.protocol.AccountPermissionUpdateContract.prototype.getWitness = function() {
   return /** @type{?proto.protocol.Permission} */ (
-    jspb.Message.getWrapperField(this, core_Tron_pb.Permission, 3));
+    jspb.Message.getWrapperField(this, core_Linda_pb.Permission, 3));
 };
 
 
@@ -8820,7 +8820,7 @@ proto.protocol.AccountPermissionUpdateContract.prototype.hasWitness = function()
  */
 proto.protocol.AccountPermissionUpdateContract.prototype.getActivesList = function() {
   return /** @type{!Array.<!proto.protocol.Permission>} */ (
-    jspb.Message.getRepeatedWrapperField(this, core_Tron_pb.Permission, 4));
+    jspb.Message.getRepeatedWrapperField(this, core_Linda_pb.Permission, 4));
 };
 
 

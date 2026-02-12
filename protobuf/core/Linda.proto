@@ -6,9 +6,9 @@ import "core/Discover.proto";
 package protocol;
 
 
-option java_package = "org.tron.protos"; //Specify the name of the package that generated the Java file
+option java_package = "org.linda.protos"; //Specify the name of the package that generated the Java file
 option java_outer_classname = "Protocol"; //Specify the class name of the generated Java file
-option go_package = "github.com/tronprotocol/grpc-gateway/core";
+option go_package = "github.com/lindaprotocol/grpc-gateway/core";
 
 enum AccountType {
   Normal = 0;
@@ -70,7 +70,7 @@ message ChainParameters {
 message Account {
   /* frozen balance */
   message Frozen {
-    int64 frozen_balance = 1; // the frozen trx balance
+    int64 frozen_balance = 1; // the frozen lind balance
     int64 expire_time = 2; // the expire time
   }
   // account nick name
@@ -78,7 +78,7 @@ message Account {
   AccountType type = 2;
   // the create address
   bytes address = 3;
-  // the trx balance
+  // the lind balance
   int64 balance = 4;
   // the votes
   repeated Vote votes = 5;
@@ -274,6 +274,12 @@ message Transaction {
       AccountPermissionUpdateContract = 46;
       ClearABIContract = 48;
       UpdateBrokerageContract = 49;
+      FreezeBalanceV2Contract = 54;
+      UnfreezeBalanceV2Contract = 55;
+      WithdrawExpireUnfreezeContract = 56;
+      DelegateResourceContract = 57;
+      UndelegateResourceContract = 58;
+
     }
     ContractType type = 1;
     google.protobuf.Any parameter = 2;
@@ -429,7 +435,7 @@ message BlockInventory {
 
 message Inventory {
   enum InventoryType {
-    TRX = 0;
+    LIND = 0;
     BLOCK = 1;
   }
   InventoryType type = 1;
@@ -439,7 +445,7 @@ message Inventory {
 message Items {
   enum ItemType {
     ERR = 0;
-    TRX = 1;
+    LIND = 1;
     BLOCK = 2;
     BLOCKHEADER = 3;
   }
@@ -544,21 +550,21 @@ message SmartContract {
   string name = 7;
   int64 origin_energy_limit = 8;
   bytes code_hash = 9;
-  bytes trx_hash = 10;
+  bytes lind_hash = 10;
 }
 
 message InternalTransaction {
   // internalTransaction identity, the root InternalTransaction hash
   // should equals to root transaction id.
   bytes hash = 1;
-  // the one send trx (TBD: or token) via function
+  // the one send lind (TBD: or token) via function
   bytes caller_address = 2;
-  // the one recieve trx (TBD: or token) via function
+  // the one recieve lind (TBD: or token) via function
   bytes transferTo_address = 3;
   message CallValueInfo {
-    // trx (TBD: or token) value
+    // lind (TBD: or token) value
     int64 callValue = 1;
-    // TBD: tokenName, trx should be empty
+    // TBD: tokenName, lind should be empty
     string tokenId = 2;
   }
   repeated CallValueInfo callValueInfo = 4;

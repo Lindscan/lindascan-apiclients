@@ -1,11 +1,11 @@
 
 <h1 align="center">
-  Tronscan Client
+  Lindascan Client
   <br>
 </h1>
 
 <h4 align="center">
-  Node Client for the <a href="https://github.com/tronscan/tronscan-frontend/blob/dev2019/document/api.md">Tronscan.org API</a>
+  Node Client for the <a href="https://github.com/Lindscan/lindascan-frontend/blob/master/document/api.md">Lindascan.org API</a>
 </h4>
 
 <p align="center">
@@ -16,7 +16,7 @@
 
 ## Requirements
 
-* Node v9.8.0
+* Node v16.17.0
 
 ## Running tests
 
@@ -29,13 +29,13 @@
 Install the package
 
 ```bash
-> npm install @tronscanteam/apiclients
+> npm install @lindascan/apiclients
 ```
 
 Use the HTTP Client
 
 ```javascript
-import {Client} from "@tronscanteam/apiclients";
+import {Client} from "@lindascan/apiclients";
 
 const client = new Client();
 

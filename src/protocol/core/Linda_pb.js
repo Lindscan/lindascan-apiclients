@@ -11141,7 +11141,7 @@ proto.protocol.Inventory.serializeBinaryToWriter = function(message, writer) {
  * @enum {number}
  */
 proto.protocol.Inventory.InventoryType = {
-  TRX: 0,
+  LIND: 0,
   BLOCK: 1
 };
 
@@ -11397,7 +11397,7 @@ proto.protocol.Items.serializeBinaryToWriter = function(message, writer) {
  */
 proto.protocol.Items.ItemType = {
   ERR: 0,
-  TRX: 1,
+  LIND: 1,
   BLOCK: 2,
   BLOCKHEADER: 3
 };
@@ -12388,7 +12388,7 @@ proto.protocol.SmartContract.toObject = function(includeInstance, msg) {
     name: jspb.Message.getFieldWithDefault(msg, 7, ""),
     originEnergyLimit: jspb.Message.getFieldWithDefault(msg, 8, 0),
     codeHash: msg.getCodeHash_asB64(),
-    trxHash: msg.getTrxHash_asB64()
+    lindHash: msg.getLindHash_asB64()
   };
 
   if (includeInstance) {
@@ -12464,7 +12464,7 @@ proto.protocol.SmartContract.deserializeBinaryFromReader = function(msg, reader)
       break;
     case 10:
       var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setTrxHash(value);
+      msg.setLindHash(value);
       break;
     default:
       reader.skipField();
@@ -12559,7 +12559,7 @@ proto.protocol.SmartContract.serializeBinaryToWriter = function(message, writer)
       f
     );
   }
-  f = message.getTrxHash_asU8();
+  f = message.getLindHash_asU8();
   if (f.length > 0) {
     writer.writeBytes(
       10,
@@ -13586,40 +13586,40 @@ proto.protocol.SmartContract.prototype.setCodeHash = function(value) {
 
 
 /**
- * optional bytes trx_hash = 10;
+ * optional bytes lind_hash = 10;
  * @return {!(string|Uint8Array)}
  */
-proto.protocol.SmartContract.prototype.getTrxHash = function() {
+proto.protocol.SmartContract.prototype.getLindHash = function() {
   return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
 };
 
 
 /**
- * optional bytes trx_hash = 10;
- * This is a type-conversion wrapper around `getTrxHash()`
+ * optional bytes lind_hash = 10;
+ * This is a type-conversion wrapper around `getLindHash()`
  * @return {string}
  */
-proto.protocol.SmartContract.prototype.getTrxHash_asB64 = function() {
+proto.protocol.SmartContract.prototype.getLindHash_asB64 = function() {
   return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getTrxHash()));
+      this.getLindHash()));
 };
 
 
 /**
- * optional bytes trx_hash = 10;
+ * optional bytes lind_hash = 10;
  * Note that Uint8Array is not supported on all browsers.
  * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getTrxHash()`
+ * This is a type-conversion wrapper around `getLindHash()`
  * @return {!Uint8Array}
  */
-proto.protocol.SmartContract.prototype.getTrxHash_asU8 = function() {
+proto.protocol.SmartContract.prototype.getLindHash_asU8 = function() {
   return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getTrxHash()));
+      this.getLindHash()));
 };
 
 
 /** @param {!(string|Uint8Array)} value */
-proto.protocol.SmartContract.prototype.setTrxHash = function(value) {
+proto.protocol.SmartContract.prototype.setLindHash = function(value) {
   jspb.Message.setProto3BytesField(this, 10, value);
 };
 
