@@ -22,7 +22,7 @@
   "_resolved": "https://registry.npmjs.org/@lindascan/apiclients/-/client-0.3.7.tgz",
   "_shasum": "715171126ba7e60ff237016c497b207d11f7c31d",
   "_spec": "@lindascan/apiclients@^0.3.7",
-  "_where": "/Users/Documents/project/project-front/lindascan-frontend",
+  "_where": "/root/lindascan-apiclients/",
   "author": {
     "name": "w-richard"
   },
